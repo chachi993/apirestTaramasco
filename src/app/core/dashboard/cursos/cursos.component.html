@@ -1,0 +1,21 @@
+<div fxLayout="row" class="container">
+  <mat-card *ngFor="let curso of cursos" class="tarjetas" fxFlex.gt-lg="20%" fxFlex.lt-md="100%">
+    <mat-card-title>{{curso.materia}}</mat-card-title>
+    <mat-card-subtitle>{{curso.examen}}</mat-card-subtitle>
+    <mat-card-subtitle>{{curso.idCurso}}</mat-card-subtitle>
+    <mat-card-actions>
+      <button mat-flat-button color="accent" class="ancho" (click)="seleccionarCurso(curso)" *ngIf="!curso.seleccionado">Seleccionar</button>
+      <p *ngIf="curso.seleccionado">Curso seleccionado</p>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
+
+<div>
+  <h1 style="text-align: center; margin-left: 50px">Cursos elegidos</h1>
+  <mat-card *ngFor="let cursE of cursosSeleccionados" class="tarjetas" fxFlex.gt-lg="20%" fxFlex.lt-md="100%">
+    <mat-card-title>{{cursE.materia}}</mat-card-title>
+    <mat-card-subtitle>{{cursE.idCurso}}</mat-card-subtitle>
+  </mat-card>
+</div>

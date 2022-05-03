@@ -1,0 +1,59 @@
+<div class="componente">
+  <mat-form-field appearance="standard">
+    <mat-label appFontSize>Buscar Alumno</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ej: Fernando Salguero" #input autocomplete="off">
+  </mat-form-field>
+  <!-- Boton agregar usuario -->
+  <button mat-raised-button color="accent" routerLink="/dashboard/crear-alumno" >Agregar Usuario</button>
+  </div>
+<br>
+  <div class="mat-elevation-z8" *ngIf="listaDeAlumnos.length > 0">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Alumno Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Id </th>
+        <td mat-cell  *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Comision Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell appFontSize *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+
+      <!-- Estado Column -->
+      <ng-container matColumnDef="materia">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Materia </th>
+        <td mat-cell *matCellDef="let element"> {{element.materia}} </td>
+      </ng-container>
+
+      <!-- Nota Column -->
+      <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </th>
+        <td mat-cell *matCellDef="let element"> {{element.profesor}} </td>
+      </ng-container>
+
+
+      <!-- Acciones Colum -->
+      <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>  </th>
+          <td mat-cell *matCellDef="let element; let i = index" class="alineacion">
+              <a class="cursorPointer1" matTooltip="Ver Alumno">
+                  <mat-icon>search</mat-icon>
+              </a>
+              <a class="cursorPointer2" matTooltip="Editar Alumno">
+                  <mat-icon>edit</mat-icon>
+              </a>
+              <a class="cursorPointer3" matTooltip="Eliminar Alumno" (click)="eliminarUsuario(i)">
+                  <mat-icon>deleted</mat-icon>
+              </a>
+          </td>
+        </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <h2 *ngIf="listaDeAlumnos.length == 0">No hay alumnos para mostrar</h2>

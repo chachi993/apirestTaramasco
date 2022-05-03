@@ -1,0 +1,49 @@
+<mat-card style="margin-top: 10px;">
+  <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
+      <mat-grid-list cols="4" rowHeight="70px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="ancho">
+                  <mat-label>Id</mat-label>
+                  <input matInput autocomplete="off" formControlName="id">
+              </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="3" [rowspan]="5">
+              <img src="../../../../../assets/img/user.png" class="img">
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="ancho">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput autocomplete="off" formControlName="nombre">
+              </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field  class="ancho">
+                  <mat-label>Materia</mat-label>
+                  <mat-select formControlName="materia">
+                    <mat-option *ngFor="let mat of materia" [value]="mat">
+                      {{mat}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="ancho">
+                  <mat-label>Profesor</mat-label>
+                  <mat-select formControlName="profesor">
+                <mat-option *ngFor="let prof of profesor" [value]="prof">
+                  {{prof}}
+                </mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button type="submit"  mat-raised-button style="margin-right: 20px;" color="primary">Aceptar</button>
+              <button mat-raised-button color="accent">Cerrar</button>
+          </mat-grid-tile>
+      </mat-grid-list>
+  </form>
+</mat-card>

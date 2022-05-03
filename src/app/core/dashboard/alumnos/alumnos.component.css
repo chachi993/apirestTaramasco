@@ -1,0 +1,35 @@
+table {
+  width: 70%;
+  margin: 0 auto;
+
+}
+
+.cursorPointer1{
+  cursor: pointer;
+  color: rgb(36, 83, 83);
+}
+
+.cursorPointer2{
+  cursor: pointer;
+  color: blue;
+}
+
+.cursorPointer3{
+  cursor: pointer;
+  color: red;
+}
+
+
+.alineacion{
+  text-align: right;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.componente, .mat-elevation-z8, ng-container{
+  margin: 0 auto;
+  width: 50%;
+}
